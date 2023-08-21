@@ -1,0 +1,3 @@
+$Every nontrivial interval has the same number of elements of even rank as of odd rank. 
+
+$An interval in a poset P is a subset I of P with the property that, for any x and y in I and any z in P, if x ≤ z ≤ y, then z is also in I. 

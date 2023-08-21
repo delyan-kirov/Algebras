@@ -1,0 +1,51 @@
+language ESSENCE 2.4.0
+
+given n : int
+given sizeS : int
+letting N be domain int(0..n-1)
+given SGS : function (total) (int(0..sizeS), N) --> N
+
+find M : function (total) (N,N) --> N
+find J : function (total) (N,N) --> N
+find C : function (total) (N,N) --> int(0..1)
+
+such that
+
+$Associative
+forAll i,j,k: N. M((i,M((j,k)))) = M((M((i,j)),k)),
+forAll i,j,k: N. J((i,J((j,k)))) = J((J((i,j)),k)),
+
+$Commutative
+forAll i,j: N. M((i,j)) = M((j,i)),
+forAll i,j: N. J((i,j)) = J((j,i)),
+
+$Absorption
+forAll i,j: N. M((i,J((i,j)))) = i,
+forAll i,j: N. J((i,M((i,j)))) = i,
+
+$Idempotent
+forAll i: N. M((i,i)) = i,
+forAll i: N. J((i,i)) = i,
+
+$Bounded
+forAll i : N. M((n-1,i)) = i,
+forAll i : N. J((0,i)) = i,
+
+$Cover relation
+forAll i,j:N. (C((i,j)) = 1) <-> ((J((i,j)) = i) /\ !(i = j) /\ !(exists k : N. !(i = k) /\ !(j = k) /\ (J((i, k)) = i) /\ (J((k,j)) = k))),
+
+$Distributive x ∧ (y ∨ z) = (x ∧ y) ∨ (x ∧ z).
+forAll i,j,k :N. J((i, M((j,k)) )) = M (( J((i,j)), J((i,k)) )),
+
+$Stabilizer chain constraints
+forAll p: int(0..sizeS). exists i:N. (SGS((p,i)) >= i) /\
+ ((i = SGS((p,i))) -> ([M((j,i)) | j:int(i+1..n-1)] <=lex [M((j,SGS((p,i)) )) | j:int(i+1..n-1)])),
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

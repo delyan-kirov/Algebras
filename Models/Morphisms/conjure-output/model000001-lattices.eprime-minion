@@ -1,0 +1,114 @@
+MINION 3
+# CSETopLevel_number = 0
+# CSETopLevel_eliminated_expressions = 0
+# CSETopLevel_total_size = 0
+# CSE_active_number = 8
+# CSE_active_eliminated_expressions = 22
+# CSE_active_total_size = 26
+**VARIABLES**
+DISCRETE Morph_Function1D_00001 #
+{0..3}
+DISCRETE Morph_Function1D_00002 #
+{0..3}
+DISCRETE aux0 #Active-CSE: 2 occurrences of this expression or equivalent: (4*Morph_Function1D_00001 + Morph_Function1D_00002 + 1)
+{1..16}
+DISCRETE aux1 #Active-CSE: 2 occurrences of this expression or equivalent: (Morph_Function1D_00001 + 4*Morph_Function1D_00002 + 1)
+{1..16}
+DISCRETE aux2 #Active-CSE: 2 occurrences of this expression or equivalent: (5*Morph_Function1D_00002 + 1)
+{1..16}
+**CONSTRAINTS**
+w-inintervalset(aux2, [1,1,6,6,11,11,16,16])
+**VARIABLES**
+DISCRETE aux3 #Active-CSE: 2 occurrences of this expression or equivalent: (5*Morph_Function1D_00001 + 1)
+{1..16}
+**CONSTRAINTS**
+w-inintervalset(aux3, [1,1,6,6,11,11,16,16])
+**VARIABLES**
+DISCRETE aux4 #Active-CSE: 4 occurrences of this expression or equivalent: (4*Morph_Function1D_00001 + 1)
+{1..13}
+**CONSTRAINTS**
+w-inintervalset(aux4, [1,1,5,5,9,9,13,13])
+**VARIABLES**
+DISCRETE aux5 #Active-CSE: 4 occurrences of this expression or equivalent: (4*Morph_Function1D_00002 + 1)
+{1..13}
+**CONSTRAINTS**
+w-inintervalset(aux5, [1,1,5,5,9,9,13,13])
+**VARIABLES**
+DISCRETE aux6 #Active-CSE: 3 occurrences of this expression or equivalent: (Morph_Function1D_00001 + 1)
+{1..4}
+DISCRETE aux7 #Active-CSE: 3 occurrences of this expression or equivalent: (Morph_Function1D_00002 + 1)
+{1..4}
+**TUPLELIST**
+Meet1_FunctionND 4 4
+0 0 0 0 
+0 1 2 1 
+0 2 2 2 
+0 1 2 3 
+**VARIABLES**
+ALIAS Meet1_FunctionND[4,4]=[[0, 0, 0, 0], [0, 1, 2, 1], [0, 2, 2, 2], [0, 1, 2, 3]]
+**TUPLELIST**
+Join1_FunctionND 4 4
+0 1 2 3 
+1 1 1 3 
+2 1 2 3 
+3 3 3 3 
+**VARIABLES**
+ALIAS Join1_FunctionND[4,4]=[[0, 1, 2, 3], [1, 1, 1, 3], [2, 1, 2, 3], [3, 3, 3, 3]]
+**TUPLELIST**
+Join2_FunctionND 4 4
+0 1 2 3 
+1 1 2 3 
+2 2 2 3 
+3 3 3 3 
+**VARIABLES**
+ALIAS Join2_FunctionND[4,4]=[[0, 1, 2, 3], [1, 1, 2, 3], [2, 2, 2, 3], [3, 3, 3, 3]]
+**TUPLELIST**
+Meet2_FunctionND 4 4
+0 0 0 0 
+0 1 1 1 
+0 1 2 2 
+0 1 2 3 
+**VARIABLES**
+ALIAS Meet2_FunctionND[4,4]=[[0, 0, 0, 0], [0, 1, 1, 1], [0, 1, 2, 2], [0, 1, 2, 3]]
+**SEARCH**
+PRINT[[Morph_Function1D_00001],[Morph_Function1D_00002]]
+**CONSTRAINTS**
+watchelement_one([0, 1, 2, 3], aux6, Morph_Function1D_00001)
+watchelement_one([0, 1, 2, 3], aux7, Morph_Function1D_00002)
+watchelement_one([0, 1, 2, 3, 1, 1, 2, 3, 2, 2, 2, 3, 3], aux4, Morph_Function1D_00001)
+watchelement_one([0, 1, 2, 3, 1, 1, 2, 3, 2, 2, 2, 3, 3, 3, 3, 3], aux3, Morph_Function1D_00001)
+watchelement_one([0, 1, 2, 3, 1, 1, 2, 3, 2, 2, 2, 3, 3, 3, 3, 3], aux0, Morph_Function1D_00001)
+watchelement_one([3, 1, 1, 2, 3, 2, 2, 2, 3, 3, 3, 3, 3], aux4, 3)
+watchelement_one([0, 1, 2, 3, 1, 1, 2, 3, 2, 2, 2, 3, 3], aux5, Morph_Function1D_00002)
+watchelement_one([0, 1, 2, 3, 1, 1, 2, 3, 2, 2, 2, 3, 3, 3, 3, 3], aux1, Morph_Function1D_00001)
+watchelement_one([0, 1, 2, 3, 1, 1, 2, 3, 2, 2, 2, 3, 3, 3, 3, 3], aux2, Morph_Function1D_00002)
+watchelement_one([3, 1, 1, 2, 3, 2, 2, 2, 3, 3, 3, 3, 3], aux5, 3)
+watchelement_one([3, 3, 3, 3], aux6, 3)
+watchelement_one([3, 3, 3, 3], aux7, 3)
+watchelement_one([0, 0, 0, 0], aux6, 0)
+watchelement_one([0, 0, 0, 0], aux7, 0)
+watchelement_one([0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 2, 0], aux4, 0)
+watchelement_one([0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 2, 0, 1, 2, 3], aux3, Morph_Function1D_00001)
+watchelement_one([0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 2, 0, 1, 2, 3], aux0, Morph_Function1D_00002)
+watchelement_one([0, 0, 1, 1, 1, 0, 1, 2, 2, 0, 1, 2, 3], aux4, Morph_Function1D_00001)
+watchelement_one([0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 2, 0], aux5, 0)
+watchelement_one([0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 2, 0, 1, 2, 3], aux1, Morph_Function1D_00002)
+watchelement_one([0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 2, 2, 0, 1, 2, 3], aux2, Morph_Function1D_00002)
+watchelement_one([0, 0, 1, 1, 1, 0, 1, 2, 2, 0, 1, 2, 3], aux5, Morph_Function1D_00002)
+weightedsumleq([4,1,1],[Morph_Function1D_00001,Morph_Function1D_00002,1],aux0)
+weightedsumgeq([4,1,1],[Morph_Function1D_00001,Morph_Function1D_00002,1],aux0)
+weightedsumleq([1,4,1],[Morph_Function1D_00001,Morph_Function1D_00002,1],aux1)
+weightedsumgeq([1,4,1],[Morph_Function1D_00001,Morph_Function1D_00002,1],aux1)
+weightedsumleq([5,1],[Morph_Function1D_00002,1],aux2)
+weightedsumgeq([5,1],[Morph_Function1D_00002,1],aux2)
+weightedsumleq([5,1],[Morph_Function1D_00001,1],aux3)
+weightedsumgeq([5,1],[Morph_Function1D_00001,1],aux3)
+weightedsumleq([4,1],[Morph_Function1D_00001,1],aux4)
+weightedsumgeq([4,1],[Morph_Function1D_00001,1],aux4)
+weightedsumleq([4,1],[Morph_Function1D_00002,1],aux5)
+weightedsumgeq([4,1],[Morph_Function1D_00002,1],aux5)
+sumleq([Morph_Function1D_00001,1],aux6)
+sumgeq([Morph_Function1D_00001,1],aux6)
+sumleq([Morph_Function1D_00002,1],aux7)
+sumgeq([Morph_Function1D_00002,1],aux7)
+**EOF**

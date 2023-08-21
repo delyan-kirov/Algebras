@@ -1,0 +1,18 @@
+given n : int
+given m : int
+letting N be domain int(0..n-1)
+letting M be domain int(0..m-1)
+
+given Join1 : function (total) (N, N) --> N
+given Join2 : function (total) (M, M) --> M
+given Meet1 : function (total) (N, N) --> N
+given Meet2 : function (total) (M, M) --> M
+
+find Morph : function (total) M --> N
+
+such that
+
+forAll a,b: M. Morph(Join1((a,b))) = Join2((Morph(a), Morph(b))),
+forAll a,b: M. Morph(Meet1((a,b))) = Meet2((Morph(a), Morph(b))),
+Morph(0) = 0,
+Morph(n - 1) = n - 1,

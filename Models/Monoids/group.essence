@@ -1,0 +1,25 @@
+language ESSENCE 2.4.0
+
+given n : int
+letting N be domain int(0..n)
+
+find M : function (total) (N,N) --> N
+find invert : function (total) N --> N
+find id : N
+
+such that
+
+$Associative
+forAll i,j,k: N. M((i,M((j,k)))) = M((M((i,j)),k)),
+
+$Commutative
+forAll i,j: N. M((i,j)) = M((j,i)),
+
+$Identity
+forAll i: N. (M((id,i)) = M((i,id))) /\ (M((id,i)) = i),
+
+$Invertible
+forAll i: N. (M(invert(i), i) = 0) /\ (M(i, invert(i)) = 0),
+
+$Symmetry breaking
+id = 0

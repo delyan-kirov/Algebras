@@ -1,0 +1,586 @@
+language ESSENCE' 1.0
+
+given n: int
+given m: int
+letting let1 be n - 1
+letting let2 be n - 1
+letting let3 be n - 1
+given fin1: int
+given Join1_FunctionND: matrix indexed by [int(0..let1), int(0..let2)] of int(0..let3)
+letting let4 be m - 1
+letting let5 be m - 1
+letting let6 be m - 1
+given fin2: int
+given Join2_FunctionND: matrix indexed by [int(0..let4), int(0..let5)] of int(0..let6)
+letting let7 be n - 1
+letting let8 be n - 1
+letting let9 be n - 1
+given fin3: int
+given Meet1_FunctionND: matrix indexed by [int(0..let7), int(0..let8)] of int(0..let9)
+letting let10 be m - 1
+letting let11 be m - 1
+letting let12 be m - 1
+given fin4: int
+given Meet2_FunctionND: matrix indexed by [int(0..let10), int(0..let11)] of int(0..let12)
+letting let13 be m - 1
+letting let14 be n - 1
+find Morph_Function1D: matrix indexed by [int(0..let13)] of int(0..let14)
+branching on [Morph_Function1D]
+such that
+    and([Morph_Function1D[Join1_FunctionND[a, b]] = Join2_FunctionND[Morph_Function1D[a], Morph_Function1D[b]]
+             | a : int(0..m - 1), b : int(0..m - 1)]),
+    and([Morph_Function1D[Meet1_FunctionND[a, b]] = Meet2_FunctionND[Morph_Function1D[a], Morph_Function1D[b]]
+             | a : int(0..m - 1), b : int(0..m - 1)]),
+    Morph_Function1D[0] = 0,
+    Morph_Function1D[n - 1] = n - 1
+
+$ Conjure's
+$ {"finds": [{"Name": "Morph"}],
+$  "givens": [{"Name": "n"}, {"Name": "m"}, {"Name": "Join1"}, {"Name": "Join2"}, {"Name": "Meet1"}, {"Name": "Meet2"}],
+$  "enumGivens": [], "enumLettings": [],
+$  "lettings":
+$      [[{"Name": "N"},
+$        {"Domain":
+$             {"DomainInt":
+$                  [{"TagInt": []},
+$                   [{"RangeBounded":
+$                         [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                          {"Op":
+$                               {"MkOpMinus":
+$                                    [{"Reference":
+$                                          [{"Name": "n"},
+$                                           {"DeclNoRepr":
+$                                                ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]},
+$                                                 {"NoRegion": []}]}]},
+$                                     {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}]}]]}}],
+$       [{"Name": "M"},
+$        {"Domain":
+$             {"DomainInt":
+$                  [{"TagInt": []},
+$                   [{"RangeBounded":
+$                         [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                          {"Op":
+$                               {"MkOpMinus":
+$                                    [{"Reference":
+$                                          [{"Name": "m"},
+$                                           {"DeclNoRepr":
+$                                                ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]},
+$                                                 {"NoRegion": []}]}]},
+$                                     {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}]}]]}}],
+$       [{"MachineName": ["let", 1, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 2, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 3, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 4, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 5, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 6, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 7, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 8, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 9, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 10, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 11, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 12, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 13, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "m"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}],
+$       [{"MachineName": ["let", 14, []]},
+$        {"Op":
+$             {"MkOpMinus":
+$                  [{"Reference":
+$                        [{"Name": "n"},
+$                         {"DeclNoRepr":
+$                              ["Given", {"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}, {"NoRegion": []}]}]},
+$                   {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}]],
+$  "unnameds": [], "strategyQ": {"PickFirst": []}, "strategyA": {"Compact": []},
+$  "trailCompact":
+$      [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+$       [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]],
+$  "trailVerbose": [], "trailRewrites": [], "nameGenState": [["fin", 5], ["let", 15], ["q", 2]], "nbExtraGivens": 4,
+$  "representations":
+$      [[{"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 1, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 2, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 3, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"MachineName": ["fin", 4, []]}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "Morph"},
+$        {"DomainFunction":
+$             [{"Function_1D": []}, [{"SizeAttr_None": []}, "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 13, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "m"},
+$                                                       {"DeclHasRepr":
+$                                                            ["Given", {"Name": "m"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 14, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "n"},
+$                                                       {"DeclHasRepr":
+$                                                            ["Given", {"Name": "n"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}],
+$       [{"Name": "Join1"},
+$        {"DomainFunction":
+$             [{"Function_ND": []},
+$              [{"SizeAttr_Size":
+$                    {"Reference":
+$                         [{"MachineName": ["fin", 1, []]},
+$                          {"DeclHasRepr":
+$                               ["Given", {"MachineName": ["fin", 1, []]}, {"DomainInt": [{"TagInt": []}, []]}]}]}},
+$               "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 1, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "n"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "n"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 2, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "n"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "n"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 3, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "n"},
+$                                                       {"DeclHasRepr":
+$                                                            ["Given", {"Name": "n"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}],
+$       [{"Name": "Join2"},
+$        {"DomainFunction":
+$             [{"Function_ND": []},
+$              [{"SizeAttr_Size":
+$                    {"Reference":
+$                         [{"MachineName": ["fin", 2, []]},
+$                          {"DeclHasRepr":
+$                               ["Given", {"MachineName": ["fin", 2, []]}, {"DomainInt": [{"TagInt": []}, []]}]}]}},
+$               "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 4, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "m"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "m"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 5, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "m"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "m"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 6, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "m"},
+$                                                       {"DeclHasRepr":
+$                                                            ["Given", {"Name": "m"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}],
+$       [{"Name": "Meet1"},
+$        {"DomainFunction":
+$             [{"Function_ND": []},
+$              [{"SizeAttr_Size":
+$                    {"Reference":
+$                         [{"MachineName": ["fin", 3, []]},
+$                          {"DeclHasRepr":
+$                               ["Given", {"MachineName": ["fin", 3, []]}, {"DomainInt": [{"TagInt": []}, []]}]}]}},
+$               "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 7, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "n"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "n"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 8, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "n"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "n"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 9, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "n"},
+$                                                       {"DeclHasRepr":
+$                                                            ["Given", {"Name": "n"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}],
+$       [{"Name": "Meet2"},
+$        {"DomainFunction":
+$             [{"Function_ND": []},
+$              [{"SizeAttr_Size":
+$                    {"Reference":
+$                         [{"MachineName": ["fin", 4, []]},
+$                          {"DeclHasRepr":
+$                               ["Given", {"MachineName": ["fin", 4, []]}, {"DomainInt": [{"TagInt": []}, []]}]}]}},
+$               "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 10, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "m"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "m"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference":
+$                                      [{"MachineName": ["let", 11, []]},
+$                                       {"Alias":
+$                                            {"Op":
+$                                                 {"MkOpMinus":
+$                                                      [{"Reference":
+$                                                            [{"Name": "m"},
+$                                                             {"DeclHasRepr":
+$                                                                  ["Given", {"Name": "m"},
+$                                                                   {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                       {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference":
+$                                [{"MachineName": ["let", 12, []]},
+$                                 {"Alias":
+$                                      {"Op":
+$                                           {"MkOpMinus":
+$                                                [{"Reference":
+$                                                      [{"Name": "m"},
+$                                                       {"DeclHasRepr":
+$                                                            ["Given", {"Name": "m"},
+$                                                             {"DomainInt": [{"TagInt": []}, []]}]}]},
+$                                                 {"Constant": {"ConstantInt": [{"TagInt": []}, 1]}}]}}}]}]}]]}]}]],
+$  "representationsTree":
+$      [[{"Name": "Join1"},
+$        [{"rootLabel": {"Function_ND": []},
+$          "subForest":
+$              [{"rootLabel": null,
+$                "subForest": [{"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []}]},
+$               {"rootLabel": null, "subForest": []}]}]],
+$       [{"Name": "Join2"},
+$        [{"rootLabel": {"Function_ND": []},
+$          "subForest":
+$              [{"rootLabel": null,
+$                "subForest": [{"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []}]},
+$               {"rootLabel": null, "subForest": []}]}]],
+$       [{"Name": "Meet1"},
+$        [{"rootLabel": {"Function_ND": []},
+$          "subForest":
+$              [{"rootLabel": null,
+$                "subForest": [{"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []}]},
+$               {"rootLabel": null, "subForest": []}]}]],
+$       [{"Name": "Meet2"},
+$        [{"rootLabel": {"Function_ND": []},
+$          "subForest":
+$              [{"rootLabel": null,
+$                "subForest": [{"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []}]},
+$               {"rootLabel": null, "subForest": []}]}]],
+$       [{"Name": "Morph"},
+$        [{"rootLabel": {"Function_1D": []},
+$          "subForest": [{"rootLabel": null, "subForest": []}, {"rootLabel": null, "subForest": []}]}]],
+$       [{"MachineName": ["fin", 1, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 2, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 3, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"MachineName": ["fin", 4, []]}, [{"rootLabel": null, "subForest": []}]],
+$       [{"Name": "m"}, [{"rootLabel": null, "subForest": []}]], [{"Name": "n"}, [{"rootLabel": null, "subForest": []}]]],
+$  "originalDomains":
+$      [[{"Name": "n"}, {"DomainInt": [{"TagInt": []}, []]}], [{"Name": "m"}, {"DomainInt": [{"TagInt": []}, []]}],
+$       [{"Name": "Join1"},
+$        {"DomainFunction":
+$             [[], [{"SizeAttr_None": []}, "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 1, []]}, null]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 2, []]}, null]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 3, []]}, null]}]}]]}]}],
+$       [{"Name": "Join2"},
+$        {"DomainFunction":
+$             [[], [{"SizeAttr_None": []}, "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 4, []]}, null]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 5, []]}, null]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 6, []]}, null]}]}]]}]}],
+$       [{"Name": "Meet1"},
+$        {"DomainFunction":
+$             [[], [{"SizeAttr_None": []}, "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 7, []]}, null]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 8, []]}, null]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 9, []]}, null]}]}]]}]}],
+$       [{"Name": "Meet2"},
+$        {"DomainFunction":
+$             [[], [{"SizeAttr_None": []}, "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainTuple":
+$                   [{"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 10, []]}, null]}]}]]},
+$                    {"DomainInt":
+$                         [{"TagInt": []},
+$                          [{"RangeBounded":
+$                                [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                                 {"Reference": [{"MachineName": ["let", 11, []]}, null]}]}]]}]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 12, []]}, null]}]}]]}]}],
+$       [{"Name": "Morph"},
+$        {"DomainFunction":
+$             [[], [{"SizeAttr_None": []}, "PartialityAttr_Total", "JectivityAttr_None"],
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 13, []]}, null]}]}]]},
+$              {"DomainInt":
+$                   [{"TagInt": []},
+$                    [{"RangeBounded":
+$                          [{"Constant": {"ConstantInt": [{"TagInt": []}, 0]}},
+$                           {"Reference": [{"MachineName": ["let", 14, []]}, null]}]}]]}]}]],
+$  "trailGeneralised":
+$      [[-4830964599593489259, -2607167579630333458], [-4017986103253917757, -3473548721137350370],
+$       [-3027401088536845487, -7066169079317881080], [-3958084628044255061, -6666617282694798268],
+$       [7631296050761172880, -7624460236050076712], [8635910462631295509, 3253552376701041539],
+$       [121522462956025118, 5497836361334309553], [4216501840158573776, 2402888174708264496],
+$       [1538180979821777003, -6666617282694798268], [-5930541789172057012, -7624460236050076712],
+$       [-6351052198183234271, 5216658101966144683], [5028401200333351598, 9025266018105522569],
+$       [4808641373981588252, 7946324209330705944], [4829106109304834826, 5273400954019475746],
+$       [-7093078617765377739, 6699962099989021266], [-3252902094003365505, -4256918853473442369],
+$       [5492295998432702407, -6689854817661126179], [-7072592792353023131, 2059525721712614666],
+$       [4648337321737106952, 4034049570342908046], [4015254420136313946, 4997721661468186758],
+$       [2750727371893036647, -413174001945586895], [516887746247762047, -5764094709017543885],
+$       [-36312913505387440, -3700184427211778437], [-7513108054276879857, -267401824316209541],
+$       [-7054977139467973086, 7694520093783479643], [-3194372471527226582, -8269737366358687889],
+$       [8993613185948270769, 6246029443405160411], [67763142072396463, 1001326655155095983]]}
