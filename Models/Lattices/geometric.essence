@@ -1,9 +1,7 @@
 language ESSENCE 2.4.0
 
 given n : int
-given sizeS : int
 letting N be domain int(0..n-1)
-given SGS : function (total) (int(0..sizeS), N) --> N
 
 find M : function (total) (N,N) --> N
 find J : function (total) (N,N) --> N
@@ -47,14 +45,6 @@ forAll i,j: N. R(i) + R(j) >= R(M((i,j))) + R(J((i,j))),
 
 $Atomistic
 forAll i: N. (R(i) = 1) \/ (R(i) = 0) \/ (exists j,k : N. !(i = k) /\ !(i = j) /\ (J((j,k)) = i)),
-
-$Stabilizer chain constraints
-forAll p: int(0..sizeS). exists i:N. (SGS((p,i)) >= i) /\
- ((i = SGS((p,i))) -> ([M((j,i)) | j:int(i+1..n-1)] <=lex [M((j,SGS((p,i)) )) | j:int(i+1..n-1)])),
- 
- 
- 
- 
  
  
  
